@@ -13,7 +13,7 @@ function Homepage() {
   const [serviceData, setServiceData] = useState([]);
   useEffect(() => {
     const getPortfolioData = async () => {
-      let data = await fetch("http://95.216.165.58/portfolio/").then((a) =>
+      let data = await fetch("https://admin.trustcenterholding.com/portfolio/").then((a) =>
         a.json()
       );
       setPortfolioData(data);
@@ -21,7 +21,7 @@ function Homepage() {
     };
     getPortfolioData();
     const getServiceData = async () => {
-      let data = await fetch("http://95.216.165.58/service/").then((a) =>
+      let data = await fetch("https://admin.trustcenterholding.com/service/").then((a) =>
         a.json()
       );
       setServiceData(data);

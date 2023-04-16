@@ -14,7 +14,7 @@ function Portfolio() {
     // };
     // getPortfolioData();
     const getWebSiteData = async () => {
-      let data = await fetch("http://95.216.165.58/service/3/").then((a) =>
+      let data = await fetch("https://admin.trustcenterholding.com/service/3/").then((a) =>
         a.json()
       );
       setWebSiteData(data.portfolio);

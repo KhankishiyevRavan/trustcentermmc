@@ -7,7 +7,7 @@ function ServiceDetail() {
   const [relatedBlogs, setRelatefBlogs] = useState([]);
   useEffect(() => {
     const getServiceData = async () => {
-      let data = await fetch(`http://95.216.165.58/service/${id}/`).then((a) =>
+      let data = await fetch(`https://admin.trustcenterholding.com/service/${id}/`).then((a) =>
         a.json()
       );
       setServiceData(data.service);

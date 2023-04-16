@@ -70,7 +70,7 @@ function AboutUs() {
   const [aboutData, setAboutData] = useState([]);
   useEffect(() => {
     const getAboutData = async () => {
-      let data = await fetch("http://95.216.165.58/about/").then((a) =>
+      let data = await fetch("https://admin.trustcenterholding.com/about/").then((a) =>
         a.json()
       );
       setAboutData(data.about.section);

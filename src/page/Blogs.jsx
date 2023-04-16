@@ -6,7 +6,7 @@ function Blogs() {
   const [blogsData, setBlogsData] = useState([]);
   useEffect(() => {
     const getBlogsData = async () => {
-      let data = await fetch("http://95.216.165.58/blog/").then((a) =>
+      let data = await fetch("https://admin.trustcenterholding.com/blog/").then((a) =>
         a.json()
       );
       setBlogsData(data);

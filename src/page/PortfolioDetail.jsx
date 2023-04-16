@@ -7,7 +7,7 @@ function PortfolioDetail() {
   const [portfolioData, setPortfolioData] = useState([]);
   useState(() => {
     const getPortfolioData = async () => {
-      let data = await fetch("http://95.216.165.58/portfolio/").then((a) =>
+      let data = await fetch("https://admin.trustcenterholding.com/portfolio/").then((a) =>
         a.json()
       );
       console.log(data);

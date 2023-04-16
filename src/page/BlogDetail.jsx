@@ -6,7 +6,7 @@ function BlogDetail() {
   const [blogData, setBlogData] = useState({});
   useEffect(() => {
     const getBlogsData = async () => {
-      let data = await fetch(`http://95.216.165.58/blog/${id}/`).then((a) =>
+      let data = await fetch(`https://admin.trustcenterholding.com/blog/${id}/`).then((a) =>
         a.json()
       );
       console.log(data);
