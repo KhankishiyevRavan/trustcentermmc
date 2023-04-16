@@ -1,0 +1,16 @@
+{
+    "text":{
+       "currentStage":"",
+       "chooseWebSite":"",
+       "professionalNeed":"",
+       "duration":"",
+       "personalInfo":{
+        "name":"",
+        "surname":"",
+        "email":"",
+        "phone":""
+       },
+       "description":"",
+       "projectDetails":""
+    }
+}
