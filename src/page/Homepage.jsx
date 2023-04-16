@@ -110,6 +110,7 @@ function Homepage() {
           // centeredSlides={true}
           // centeredSlidesBounds={true}
           // centerInsufficientSlides={true}
+          
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
