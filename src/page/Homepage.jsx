@@ -13,15 +13,16 @@ function Homepage() {
   const [serviceData, setServiceData] = useState([]);
   useEffect(() => {
     const getPortfolioData = async () => {
-      let data = await fetch("https://admin.trustcenterholding.com/portfolio/").then((a) =>
-        a.json()
-      );
+      let data = await fetch(
+        "https://admin.trustcenterholding.com/portfolio/"
+      ).then((a) => a.json());
       setPortfolioData(data);
       console.log(data);
     };
     getPortfolioData();
     const getServiceData = async () => {
-      let data = await fetch("https://admin.trustcenterholding.com/service/").then((a) =>
+      // "https://admin.trustcenterholding.com/service/"
+      let data = await fetch("http://95.216.165.58/service/").then((a) =>
         a.json()
       );
       setServiceData(data);
@@ -59,42 +60,42 @@ function Homepage() {
         <div className="container">
           <h3 className="h-title">Xidmət etdiyimiz sahələr</h3>
           <div id="help-cards">
-            <div className="help-card">
+            <Link to="/service/3/" className="help-card">
               <div className="help-card-image">
                 <img src="/imgs/website-icon.svg" alt="" />
               </div>
               <span className="help-card-about">Web-sayt</span>
-            </div>
-            <div className="help-card">
+            </Link>
+            <Link to="/service/4/" className="help-card">
               <div className="help-card-image">
                 <img src="/imgs/design-icon.svg" alt="" />
               </div>
               <span className="help-card-about">Dizayn</span>
-            </div>
-            <div className="help-card">
+            </Link>
+            <Link to="/portfolio/" className="help-card">
               <div className="help-card-image">
                 <img src="/imgs/socialMedia-icon.svg" alt="" />
               </div>
               <span className="help-card-about">Sosial Media</span>
-            </div>
-            <div className="help-card">
+            </Link>
+            <Link to="/service/6/" className="help-card">
               <div className="help-card-image">
                 <img src="/imgs/productManager-icon.png" alt="" />
               </div>
               <span className="help-card-about">Prodakt Menecment</span>
-            </div>
-            <div className="help-card">
+            </Link>
+            <Link to="/service/5/" className="help-card">
               <div className="help-card-image">
                 <img src="/imgs/cloud-icon.png" alt="" />
               </div>
               <span className="help-card-about">Cloud</span>
-            </div>
-            <div className="help-card">
+            </Link>
+            <Link to="/service" className="help-card">
               <div className="help-card-image">
                 <img src="/imgs/right-icon.svg" alt="" />
               </div>
               <span className="help-card-about">More</span>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -110,7 +111,7 @@ function Homepage() {
           // centeredSlides={true}
           // centeredSlidesBounds={true}
           // centerInsufficientSlides={true}
-          
+
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
@@ -137,7 +138,7 @@ function Homepage() {
             <SwiperSlide key={index}>
               <Link to={`/portfolio/${p.id}`} className="carousel-card">
                 <div className="carousel-card-image">
-                  <img src={p.main_image} alt="" />{" "}
+                  <img src={p.main_image} alt="" />
                 </div>
                 {/* <div className="carousel-text">
                   <div>
@@ -187,13 +188,17 @@ function Homepage() {
             {serviceData.map((s, index) => {
               if (index >= 0 && index < 2) {
                 return (
-                  <div key={index} className="service">
+                  <Link
+                    to={`/service/${s.id}/`}
+                    key={index}
+                    className="service"
+                  >
                     <h5 className="service-name">{s.name}</h5>
                     <div className="service-image">
                       <img src={s.image} alt="" />
                     </div>
                     <p className="service-text">{s.text}</p>
-                  </div>
+                  </Link>
                 );
               }
             })}

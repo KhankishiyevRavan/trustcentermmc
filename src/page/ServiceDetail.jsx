@@ -7,7 +7,8 @@ function ServiceDetail() {
   const [relatedBlogs, setRelatefBlogs] = useState([]);
   useEffect(() => {
     const getServiceData = async () => {
-      let data = await fetch(`https://admin.trustcenterholding.com/service/${id}/`).then((a) =>
+      // `https://admin.trustcenterholding.com/service/${id}/`
+      let data = await fetch(`http://95.216.165.58/service/${id}/`).then((a) =>
         a.json()
       );
       setServiceData(data.service);
@@ -19,7 +20,7 @@ function ServiceDetail() {
     <>
       <section className="service-detail-section">
         <div className="container">
-          <h3 className="h-title">Web Development</h3>
+          <h3 className="h-title">{serviceData.name}</h3>
           <div className="service-detail-image">
             <img src={serviceData.image} alt="" />
           </div>
@@ -28,7 +29,7 @@ function ServiceDetail() {
           </div>
         </div>
       </section>
-      {relatedBlogs.length? (
+      {relatedBlogs.length ? (
         <section className="related-blogs">
           <div className="container">
             <h3 className="h-title">Related Blogs</h3>
@@ -93,7 +94,9 @@ function ServiceDetail() {
             </div>
           </div>
         </section>
-      ):""}
+      ) : (
+        ""
+      )}
     </>
   );
 }

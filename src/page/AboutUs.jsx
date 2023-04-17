@@ -55,7 +55,7 @@ function AboutUs() {
         type: "bar",
         label: "Web site",
         backgroundColor: "rgb(75, 192, 192)",
-        data: [3, 7, 5, 2, ],
+        data: [3, 7, 5, 2],
         borderColor: "white",
         borderWidth: 2,
       },
@@ -63,16 +63,16 @@ function AboutUs() {
         type: "bar",
         label: "Web design",
         backgroundColor: "rgb(53, 162, 235)",
-        data: [5, 4, 6, 4,],
+        data: [5, 4, 6, 4],
       },
     ],
   };
   const [aboutData, setAboutData] = useState([]);
   useEffect(() => {
     const getAboutData = async () => {
-      let data = await fetch("https://admin.trustcenterholding.com/about/").then((a) =>
-        a.json()
-      );
+      let data = await fetch(
+        "https://admin.trustcenterholding.com/about/"
+      ).then((a) => a.json());
       setAboutData(data.about.section);
       // console.log(data.about.section);
     };
@@ -89,10 +89,13 @@ function AboutUs() {
         </div>
       </section>
       <section id="about-us">
-        {aboutData?.map((a,index) => (
+        {aboutData?.map((a, index) => (
           <div key={index} className="section">
             <div className="about-image">
-              <img src={a.image} alt="" />
+              <img
+                src={`http://admin.trustcenterholding.com/${a.image.slice(11,a.image.length)}`}
+                alt=""
+              />
             </div>
             <div className="about-text">
               <h3 className="h-title">About us</h3>

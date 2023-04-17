@@ -3,22 +3,25 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
+import { useParams } from "react-router-dom";
 function PortfolioDetail() {
   const [portfolioData, setPortfolioData] = useState([]);
+  const { id } = useParams();
   useState(() => {
     const getPortfolioData = async () => {
-      let data = await fetch("https://admin.trustcenterholding.com/portfolio/").then((a) =>
-        a.json()
+      // `https://admin.trustcenterholding.com/portfolio/${id}`
+      let data = await fetch(`http://95.216.165.58/portfolio/${id}/`).then(
+        (a) => a.json()
       );
       console.log(data);
-      // setPortfolioData(data.filter(d)=>d.name===);
+      setPortfolioData(data);
     };
     getPortfolioData();
   }, []);
   return (
     <>
       <section className="portfolio-detail-section">
-        <h3 className="h-title">Website Name</h3>
+        <h3 className="h-title">{portfolioData.name}</h3>
         <Swiper
           slidesPerView={2}
           centeredSlides={true}
@@ -30,36 +33,27 @@ function PortfolioDetail() {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
-          <SwiperSlide>Slide 5</SwiperSlide>
-          <SwiperSlide>Slide 6</SwiperSlide>
-          <SwiperSlide>Slide 7</SwiperSlide>
-          <SwiperSlide>Slide 8</SwiperSlide>
-          <SwiperSlide>Slide 9</SwiperSlide>
+          {portfolioData.image?.map((pic, index) => (
+            <SwiperSlide key={index}>
+              <img src={pic.image} alt="" />
+            </SwiperSlide>
+          ))}
         </Swiper>
         <div className="container">
-          <p>
-            Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            vulputate libero et velit interdum, ac aliquet odio mattis. Class
-            aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos. Curabitur tempus urna at turpis
-            condimentuobortis.Korem ipsum dolor sit amet, consectetur adipiscing
-            elit. Nunc vulputate libero et velit interdum, ac aliquet odio
-            mattis. Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos.
-          </p>
+          <p>{portfolioData.text}</p>
           <ul>
             <li>
-              <strong>Date :</strong> 17/11/2020
+              <strong>Tarix :</strong> {portfolioData.date}
             </li>
-            <li>
+            {/* <li>
+
               <strong>Link :</strong> 17/11/2020
-            </li>
+            </li> */}
             <li>
-              <strong>Technologies :</strong> 17/11/2020
+              <strong>Texnologiyalar :</strong>{" "}
+              {portfolioData.service && portfolioData.service[0] === 3
+                ? "React / DJango"
+                : "Figma"}
             </li>
           </ul>
         </div>
