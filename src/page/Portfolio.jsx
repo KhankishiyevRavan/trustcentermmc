@@ -14,17 +14,17 @@ function Portfolio() {
     // };
     // getPortfolioData();
     const getWebSiteData = async () => {
-      let data = await fetch("https://admin.trustcenterholding.com/service/3/").then((a) =>
-        a.json()
-      );
+      let data = await fetch(
+        "https://admin.trustcenterholding.com/service/3/"
+      ).then((a) => a.json());
       setWebSiteData(data.portfolio);
       console.log(data.portfolio);
     };
     getWebSiteData();
     const getWebDesignData = async () => {
-      let data = await fetch("http://95.216.165.58/service/4/").then((a) =>
-        a.json()
-      );
+      let data = await fetch(
+        "https://admin.trustcenterholding.com/service/4/"
+      ).then((a) => a.json());
       setWebDesignData(data.portfolio);
       // console.log(data);
     };
@@ -43,10 +43,15 @@ function Portfolio() {
               {webSiteData.map((w, index) => (
                 <Link
                   key={index}
-                  to={`/portfolio/${index+1}/`}
+                  to={`/portfolio/${index + 1}/`}
                   className="portfolio"
                 >
-                  <img src={`http://95.216.165.58/${w.main_image}`} alt="" />
+                  <img
+                    src={`https://admin.trustcenterholding.com/${w.main_image.slice(
+                      20
+                    )}`}
+                    alt=""
+                  />
                 </Link>
               ))}
             </div>
@@ -59,7 +64,12 @@ function Portfolio() {
             <div className="portfolios">
               {webDesignData.map((w, index) => (
                 <div key={index} className="portfolio">
-                  <img src={`http://95.216.165.58/${w.main_image}`} alt="" />
+                  <img
+                    src={`https://admin.trustcenterholding.com/${w.main_image.slice(
+                      20
+                    )}`}
+                    alt=""
+                  />
                 </div>
               ))}
             </div>

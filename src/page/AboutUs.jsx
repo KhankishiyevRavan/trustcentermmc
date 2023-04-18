@@ -93,7 +93,7 @@ function AboutUs() {
           <div key={index} className="section">
             <div className="about-image">
               <img
-                src={`http://admin.trustcenterholding.com/${a.image.slice(11,a.image.length)}`}
+                src={`https://admin.trustcenterholding.com/${a.image.slice(20)}`}
                 alt=""
               />
             </div>

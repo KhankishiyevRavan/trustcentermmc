@@ -6,9 +6,9 @@ function BlogDetail() {
   const [blogData, setBlogData] = useState({});
   useEffect(() => {
     const getBlogsData = async () => {
-      let data = await fetch(`https://admin.trustcenterholding.com/blog/${id}/`).then((a) =>
-        a.json()
-      );
+      let data = await fetch(
+        `https://admin.trustcenterholding.com/blog/${id}/`
+      ).then((a) => a.json());
       console.log(data);
       setBlogData(data.blog);
     };
@@ -39,7 +39,12 @@ function BlogDetail() {
           </div>
           {/* </div> */}
           <div className="blog-detail-image">
-            <img src={blogData.main_image} alt="" />
+            <img
+              src={`http://admin.trustcenterholding.com/${blogData.main_image?.slice(
+                20
+              )}`}
+              alt=""
+            />
           </div>
           <div
             className="blog-detail-text"

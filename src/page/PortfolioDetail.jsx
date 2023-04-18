@@ -10,7 +10,7 @@ function PortfolioDetail() {
   useState(() => {
     const getPortfolioData = async () => {
       // `https://admin.trustcenterholding.com/portfolio/${id}`
-      let data = await fetch(`http://95.216.165.58/portfolio/${id}/`).then(
+      let data = await fetch(`https://admin.trustcenterholding.com/portfolio/${id}/`).then(
         (a) => a.json()
       );
       console.log(data);
@@ -35,7 +35,7 @@ function PortfolioDetail() {
         >
           {portfolioData.image?.map((pic, index) => (
             <SwiperSlide key={index}>
-              <img src={pic.image} alt="" />
+              <img src={`http://admin.trustcenterholding.com/${pic.image.slice(20)}`} alt="" />
             </SwiperSlide>
           ))}
         </Swiper>

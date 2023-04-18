@@ -30,12 +30,12 @@ function ContactUs() {
     };
 
     axios
-      .post("https://admin.trustcenterholding.com/contact/", contactData, config)
+      .post("http://admin.trustcenterholding.com/contact/", contactData, config)
       .then((response) => {
-        console.log(response);
+        console.log(response,"success");
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error,"error");
       });
     // fetch("http://95.216.165.58/contact/", {
     //   method: "POST",

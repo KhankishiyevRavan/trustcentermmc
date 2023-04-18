@@ -22,9 +22,9 @@ function Homepage() {
     getPortfolioData();
     const getServiceData = async () => {
       // "https://admin.trustcenterholding.com/service/"
-      let data = await fetch("http://95.216.165.58/service/").then((a) =>
-        a.json()
-      );
+      let data = await fetch(
+        "https://admin.trustcenterholding.com/service/"
+      ).then((a) => a.json());
       setServiceData(data);
       console.log(data);
     };
@@ -138,7 +138,12 @@ function Homepage() {
             <SwiperSlide key={index}>
               <Link to={`/portfolio/${p.id}`} className="carousel-card">
                 <div className="carousel-card-image">
-                  <img src={p.main_image} alt="" />
+                  <img
+                    src={`http://admin.trustcenterholding.com/${p.main_image.slice(
+                      20
+                    )}`}
+                    alt=""
+                  />
                 </div>
                 {/* <div className="carousel-text">
                   <div>
@@ -158,9 +163,14 @@ function Homepage() {
           ))}
           {portfolioData?.map((p, index) => (
             <SwiperSlide key={index}>
-              <div className="carousel-card">
+              <Link to={`/portfolio/${p.id}`} className="carousel-card">
                 <div className="carousel-card-image">
-                  <img src={p.main_image} alt="" />{" "}
+                  <img
+                    src={`http://admin.trustcenterholding.com/${p.main_image.slice(
+                      20
+                    )}`}
+                    alt=""
+                  />
                 </div>
                 {/* <div className="carousel-text">
                   <div>
@@ -176,7 +186,7 @@ function Homepage() {
                       : "Interyer dizaynlarla dolu tərtib olunmuş web səhifə"}{" "}
                   </p>
                 </div> */}
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -195,7 +205,12 @@ function Homepage() {
                   >
                     <h5 className="service-name">{s.name}</h5>
                     <div className="service-image">
-                      <img src={s.image} alt="" />
+                      <img
+                        src={`http://admin.trustcenterholding.com/${s.image.slice(
+                          20
+                        )}`}
+                        alt=""
+                      />
                     </div>
                     <p className="service-text">{s.text}</p>
                   </Link>

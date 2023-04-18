@@ -23,7 +23,7 @@ function Service() {
                 <Link to={`/service/${s.id}`} key={index} className="service">
                   <h5 className="service-name">{s.name}</h5>
                   <div className="service-image">
-                    <img src={s.image} alt="" />
+                    <img src={`http://admin.trustcenterholding.com/${s.image.slice(20)}`} alt="" />
                   </div>
                   <p className="service-text">{s.text}</p>
                 </Link>

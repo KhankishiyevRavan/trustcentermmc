@@ -6,8 +6,8 @@ function Blogs() {
   const [blogsData, setBlogsData] = useState([]);
   useEffect(() => {
     const getBlogsData = async () => {
-      let data = await fetch("https://admin.trustcenterholding.com/blog/").then((a) =>
-        a.json()
+      let data = await fetch("https://admin.trustcenterholding.com/blog/").then(
+        (a) => a.json()
       );
       setBlogsData(data);
       console.log(data);
@@ -60,7 +60,12 @@ function Blogs() {
             {currentItems?.map((b, index) => (
               <Link to={`/blog/${b.id}`} className="blog" key={index}>
                 <div className="blog-image">
-                  <img src={b.main_image} alt="" />
+                  <img
+                    src={`http://admin.trustcenterholding.com/${b.main_image.slice(
+                      20
+                    )}`}
+                    alt=""
+                  />
                   <div className="blog-tags tag">Technology</div>
                 </div>
                 <div className="blog-text">
