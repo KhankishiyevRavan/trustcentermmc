@@ -47,9 +47,7 @@ function Portfolio() {
                   className="portfolio"
                 >
                   <img
-                    src={`https://admin.trustcenterholding.com/${w.main_image.slice(
-                      20
-                    )}`}
+                    src={`https://admin.trustcenterholding.com/${w.main_image}`}
                     alt=""
                   />
                 </Link>
@@ -65,9 +63,7 @@ function Portfolio() {
               {webDesignData.map((w, index) => (
                 <div key={index} className="portfolio">
                   <img
-                    src={`https://admin.trustcenterholding.com/${w.main_image.slice(
-                      20
-                    )}`}
+                    src={`https://admin.trustcenterholding.com/${w.main_image}`}
                     alt=""
                   />
                 </div>

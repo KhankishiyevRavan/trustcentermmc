@@ -78,7 +78,7 @@ function Header() {
           </div>
         </div>
       </header>
-      <button className="order-button">Sifariş et</button>
+      <Link to='/order' className="order-button">Sifariş et</Link>
     </>
   );
 }
