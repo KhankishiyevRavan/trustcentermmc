@@ -61,7 +61,7 @@ function Blogs() {
               <Link to={`/blog/${b.id}`} className="blog" key={index}>
                 <div className="blog-image">
                   <img
-                    src={`http://admin.trustcenterholding.com/${b.main_image.slice(
+                    src={`https://admin.trustcenterholding.com/${b.main_image.slice(
                       20
                     )}`}
                     alt=""

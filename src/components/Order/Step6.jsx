@@ -54,7 +54,6 @@ function Step6() {
             />
           </label>
         </div>
-        <button onClick={(e) => sendData(e)}>Send</button>
       </form>
     </div>
   );

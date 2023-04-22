@@ -40,7 +40,7 @@ function BlogDetail() {
           {/* </div> */}
           <div className="blog-detail-image">
             <img
-              src={`http://admin.trustcenterholding.com/${blogData.main_image?.slice(
+              src={`https://admin.trustcenterholding.com/${blogData.main_image?.slice(
                 20
               )}`}
               alt=""

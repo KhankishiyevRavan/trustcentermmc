@@ -35,7 +35,7 @@ function PortfolioDetail() {
         >
           {portfolioData.image?.map((pic, index) => (
             <SwiperSlide key={index}>
-              <img src={`http://admin.trustcenterholding.com/${pic.image.slice(20)}`} alt="" />
+              <img src={`https://admin.trustcenterholding.com/${pic.image.slice(20)}`} alt="" />
             </SwiperSlide>
           ))}
         </Swiper>

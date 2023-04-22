@@ -42,12 +42,21 @@ function OrderTest() {
     }
   };
   const handleClick = (direction) => {
-    // console.log("salam");
-    let newStep = currentStep;
-    direction === "next" ? newStep++ : newStep--;
-    // console.log(steps.length);
-    newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
+    document.querySelector(".order-form form")?.classList.remove("deactive");
+    setTimeout(() => {
+      let newStep = currentStep;
+      direction === "next" ? newStep++ : newStep--;
+      newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
+    }, 500);
   };
+  useEffect(() => {
+    document.querySelector(".order-form form")?.classList.add("deactive");
+  }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      document.querySelector(".order-form form")?.classList.add("deactive");
+    }, 500);
+  }, [currentStep]);
   useEffect(() => {
     console.log(userData);
   }, [userData]);

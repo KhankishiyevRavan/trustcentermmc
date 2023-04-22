@@ -56,18 +56,20 @@ function Stepper({ steps, currentStep }) {
     setNewStep(current);
   }, [steps, currentStep]);
   const displaySteps = newStep.map((step, index) => {
-    return (
-      <div
-        key={index}
-        className={step.selected ? "order-step selected" : "order-step "}
-      >
-        {!step.completed ? (
-          index + 1
-        ) : (
-          <FontAwesomeIcon icon="fa-solid fa-check" />
-        )}
-      </div>
-    );
+    if (index < newStep.length - 1) {
+      return (
+        <div
+          key={index}
+          className={step.selected ? "order-step selected" : "order-step "}
+        >
+          {!step.completed ? (
+            index + 1
+          ) : (
+            <FontAwesomeIcon icon="fa-solid fa-check" />
+          )}
+        </div>
+      );
+    }
   });
   return (
     <div>

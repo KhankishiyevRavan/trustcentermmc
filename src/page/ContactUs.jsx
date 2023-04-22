@@ -30,7 +30,7 @@ function ContactUs() {
     };
 
     axios
-      .post("http://admin.trustcenterholding.com/contact/", contactData, config)
+      .post("https://admin.trustcenterholding.com/contact/", contactData, config)
       .then((response) => {
         console.log(response,"success");
       })

@@ -139,7 +139,7 @@ function Homepage() {
               <Link to={`/portfolio/${p.id}`} className="carousel-card">
                 <div className="carousel-card-image">
                   <img
-                    src={`http://admin.trustcenterholding.com/${p.main_image.slice(
+                    src={`https://admin.trustcenterholding.com/${p.main_image.slice(
                       20
                     )}`}
                     alt=""
@@ -166,7 +166,7 @@ function Homepage() {
               <Link to={`/portfolio/${p.id}`} className="carousel-card">
                 <div className="carousel-card-image">
                   <img
-                    src={`http://admin.trustcenterholding.com/${p.main_image.slice(
+                    src={`https://admin.trustcenterholding.com/${p.main_image.slice(
                       20
                     )}`}
                     alt=""
@@ -206,7 +206,7 @@ function Homepage() {
                     <h5 className="service-name">{s.name}</h5>
                     <div className="service-image">
                       <img
-                        src={`http://admin.trustcenterholding.com/${s.image.slice(
+                        src={`https://admin.trustcenterholding.com/${s.image.slice(
                           20
                         )}`}
                         alt=""
