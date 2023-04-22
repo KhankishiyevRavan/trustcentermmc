@@ -9,6 +9,7 @@ import Step5 from "../components/Order/Step5";
 import Step6 from "../components/Order/Step6";
 import { StepperContext } from "../contexts/StepperContext";
 import Final from "../components/Order/Final";
+import axios from "axios";
 function OrderTest() {
   const [currentStep, setCurrentStep] = useState(1);
   const [userData, setUserData] = useState("");
@@ -49,6 +50,23 @@ function OrderTest() {
       newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
     }, 500);
   };
+  const sendData = (e) => {
+    console.log({ ...userData });
+    e.preventDefault();
+    const config = {
+      headers: { "Content-type": "application/json" },
+    };
+    axios
+      .post("https://admin.trustcenterholding.com/order/", userData, config)
+      .then((response) => {
+        handleClick("next");
+        console.log(response, "success");
+      })
+      .catch((error) => {
+        handleClick("next");
+        console.log(error, "error");
+      });
+  };
   useEffect(() => {
     document.querySelector(".order-form form")?.classList.add("deactive");
   }, []);
@@ -83,6 +101,7 @@ function OrderTest() {
           handleClick={handleClick}
           currentStep={currentStep}
           steps={steps}
+          sendData={sendData}
         />
       </div>
     </section>
