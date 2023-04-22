@@ -4,9 +4,9 @@ function Service() {
   const [serviceData, setServiceData] = useState([]);
   useEffect(() => {
     const getServiceData = async () => {
-      let data = await fetch("https://admin.trustcenterholding.com/service/").then((a) =>
-        a.json()
-      );
+      let data = await fetch(
+        "https://admin.trustcenterholding.com/service/"
+      ).then((a) => a.json());
       setServiceData(data);
       console.log(data);
     };
@@ -23,7 +23,7 @@ function Service() {
                 <Link to={`/service/${s.id}`} key={index} className="service">
                   <h5 className="service-name">{s.name}</h5>
                   <div className="service-image">
-                    <img src={`https://admin.trustcenterholding.com/${s.image.slice(20)}`} alt="" />
+                    <img src={s.image} alt="" />
                   </div>
                   <p className="service-text">{s.text}</p>
                 </Link>

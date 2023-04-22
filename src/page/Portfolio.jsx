@@ -43,7 +43,7 @@ function Portfolio() {
               {webSiteData.map((w, index) => (
                 <Link
                   key={index}
-                  to={`/portfolio/${index + 1}/`}
+                  to={`/portfolio/${w.id}/`}
                   className="portfolio"
                 >
                   <img
@@ -61,12 +61,16 @@ function Portfolio() {
             <span className="portfolios-title">Web-design</span>
             <div className="portfolios">
               {webDesignData.map((w, index) => (
-                <div key={index} className="portfolio">
+                <Link
+                  key={index}
+                  className="portfolio"
+                  to={`/portfolio/${w.id}/`}
+                >
                   <img
                     src={`https://admin.trustcenterholding.com/${w.main_image}`}
                     alt=""
                   />
-                </div>
+                </Link>
               ))}
             </div>
             {/* <span className="more">

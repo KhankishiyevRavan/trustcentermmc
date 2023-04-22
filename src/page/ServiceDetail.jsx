@@ -8,9 +8,9 @@ function ServiceDetail() {
   useEffect(() => {
     const getServiceData = async () => {
       // `https://admin.trustcenterholding.com/service/${id}/`
-      let data = await fetch(`https://admin.trustcenterholding.com/service/${id}/`).then((a) =>
-        a.json()
-      );
+      let data = await fetch(
+        `https://admin.trustcenterholding.com/service/${id}/`
+      ).then((a) => a.json());
       setServiceData(data.service);
       console.log(data);
     };
@@ -22,7 +22,7 @@ function ServiceDetail() {
         <div className="container">
           <h3 className="h-title">{serviceData.name}</h3>
           <div className="service-detail-image">
-            <img src={`https://admin.trustcenterholding.com/${serviceData.image?.slice(20)}`} alt="" />
+            <img src={serviceData.image} alt="" />
           </div>
           <div className="service-detail-texts">
             <p className="service-detail-text">{serviceData?.text}</p>

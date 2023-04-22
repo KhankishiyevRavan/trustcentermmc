@@ -138,12 +138,7 @@ function Homepage() {
             <SwiperSlide key={index}>
               <Link to={`/portfolio/${p.id}`} className="carousel-card">
                 <div className="carousel-card-image">
-                  <img
-                    src={`https://admin.trustcenterholding.com/${p.main_image.slice(
-                      20
-                    )}`}
-                    alt=""
-                  />
+                  <img src={p.main_image} alt="" />
                 </div>
                 {/* <div className="carousel-text">
                   <div>
@@ -165,12 +160,7 @@ function Homepage() {
             <SwiperSlide key={index}>
               <Link to={`/portfolio/${p.id}`} className="carousel-card">
                 <div className="carousel-card-image">
-                  <img
-                    src={`https://admin.trustcenterholding.com/${p.main_image.slice(
-                      20
-                    )}`}
-                    alt=""
-                  />
+                  <img src={p.main_image} alt="" />
                 </div>
                 {/* <div className="carousel-text">
                   <div>
@@ -205,12 +195,7 @@ function Homepage() {
                   >
                     <h5 className="service-name">{s.name}</h5>
                     <div className="service-image">
-                      <img
-                        src={`https://admin.trustcenterholding.com/${s.image.slice(
-                          20
-                        )}`}
-                        alt=""
-                      />
+                      <img src={s.image} alt="" />
                     </div>
                     <p className="service-text">{s.text}</p>
                   </Link>
