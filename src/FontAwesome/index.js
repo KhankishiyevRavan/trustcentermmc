@@ -2,7 +2,6 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faArrowRight,
   faCheck,
-  faCheckDouble,
   faCheckSquare,
   faChevronLeft,
   faChevronRight,
@@ -18,6 +17,7 @@ library.add(
   faChevronLeft,
   faCheckSquare
 );
+
 // <FontAwesomeIcon icon="fa-solid fa-code" />
 // <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
 // <FontAwesomeIcon icon="fa-solid fa-eye" />

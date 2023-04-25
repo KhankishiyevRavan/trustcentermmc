@@ -12,7 +12,6 @@ import {
   BarController,
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
-// import faker from "faker";
 
 ChartJS.register(
   LinearScale,
@@ -74,7 +73,6 @@ function AboutUs() {
         "https://admin.trustcenterholding.com/about/"
       ).then((a) => a.json());
       setAboutData(data.about.section);
-      // console.log(data.about.section);
     };
     getAboutData();
   }, []);

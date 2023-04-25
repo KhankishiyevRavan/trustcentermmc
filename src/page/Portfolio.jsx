@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 function Portfolio() {
-  // const [portfolioData, setPortfolioData] = useState([]);
   const [webSiteData, setWebSiteData] = useState([]);
   const [webDesignData, setWebDesignData] = useState([]);
   useEffect(() => {
@@ -18,7 +16,6 @@ function Portfolio() {
         "https://admin.trustcenterholding.com/service/3/"
       ).then((a) => a.json());
       setWebSiteData(data.portfolio);
-      console.log(data.portfolio);
     };
     getWebSiteData();
     const getWebDesignData = async () => {
@@ -26,7 +23,6 @@ function Portfolio() {
         "https://admin.trustcenterholding.com/service/4/"
       ).then((a) => a.json());
       setWebDesignData(data.portfolio);
-      // console.log(data);
     };
     getWebDesignData();
   }, []);

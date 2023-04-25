@@ -391,6 +391,7 @@ select option {
   position: relative;
   z-index: 0;
   overflow: hidden;
+  min-height: 100vh;
 }
 #services-section .h-title {
   padding-top: 150px;
@@ -1295,10 +1296,10 @@ select option {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px;
+  /* padding: 100px; */
 }
 .order-image img {
-  width: 100%;
+  width: 450px;
   object-fit: contain;
 }
 .order-steps {
@@ -1688,6 +1689,34 @@ select option {
     justify-content: center;
     margin-bottom: 30px;
   }
+  #about-top .container {
+    height: 500px;
+  }
+  #about-us {
+    margin-top: 0px;
+  }
+  .order-image img {
+    width: 350px;
+  }
+  .order-step {
+    width: 40px;
+    height: 40px;
+  }
+  .order-form p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .order-form .form-choose label {
+    font-size: 16px;
+  }
+  .order-form .form-choose input {
+    width: 16px;
+    height: 16px;
+  }
+  .order-form .form-choose input[type="radio"]::before {
+    width: 20px;
+    height: 20px;
+  }
 }
 @media screen and (max-width: 768px) {
   .container {
@@ -1830,6 +1859,33 @@ select option {
     flex-direction: column;
     margin-bottom: 20px;
   }
+  #about-top .container {
+    height: 400px;
+  }
+  #about-us {
+    margin-top: 0px;
+  }
+  #order-section {
+    flex-direction: column;
+    height: auto;
+  }
+  .order-image,
+  .order-form {
+    width: 100%;
+  }
+  .order-image img {
+    width: 300px;
+  }
+  .order-form {
+    margin: 10px 0 0 0;
+  }
+  .form-place {
+    align-items: flex-start;
+    height: auto;
+  }
+  .order-form {
+    min-height: calc(100svh - 292.99px);
+  }
 }
 @media screen and (max-width: 500px) {
   #selin-image {
@@ -1918,5 +1974,11 @@ select option {
   footer .container ul {
     flex-direction: column;
     margin-bottom: 20px;
+  }
+  #about-top .container {
+    height: 250px;
+  }
+  #about-us {
+    margin-top: 0px;
   }
 }

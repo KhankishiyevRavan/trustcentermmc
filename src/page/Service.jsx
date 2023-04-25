@@ -8,13 +8,11 @@ function Service() {
         "https://admin.trustcenterholding.com/service/"
       ).then((a) => a.json());
       setServiceData(data);
-      console.log(data);
     };
     getServiceData();
   }, []);
   return (
     <>
-    
       <section id="services-section">
         <div className="container">
           <h3 className="h-title">Technology services</h3>

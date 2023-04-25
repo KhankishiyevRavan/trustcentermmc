@@ -17,16 +17,13 @@ function Homepage() {
         "https://admin.trustcenterholding.com/portfolio/"
       ).then((a) => a.json());
       setPortfolioData(data);
-      console.log(data);
     };
     getPortfolioData();
     const getServiceData = async () => {
-      // "https://admin.trustcenterholding.com/service/"
       let data = await fetch(
         "https://admin.trustcenterholding.com/service/"
       ).then((a) => a.json());
-      setServiceData(data);
-      console.log(data);
+      setServiceData(data.slice(0, 2));
     };
     getServiceData();
   }, []);
@@ -108,10 +105,6 @@ function Homepage() {
           pagination={{
             clickable: true,
           }}
-          // centeredSlides={true}
-          // centeredSlidesBounds={true}
-          // centerInsufficientSlides={true}
-
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
@@ -130,7 +123,6 @@ function Homepage() {
               spaceBetween: 50,
             },
           }}
-          // navigation={true}
           modules={[Autoplay]}
           className="mySwiper"
         >
@@ -140,19 +132,6 @@ function Homepage() {
                 <div className="carousel-card-image">
                   <img src={p.main_image} alt="" />
                 </div>
-                {/* <div className="carousel-text">
-                  <div>
-                    <h5 className="carousel-title">
-                      {index % 2 === 0 ? "Dashboard" : "Interior Design"}
-                    </h5>
-                    <span className="carousel-date">25-02-2022</span>
-                  </div>
-                  <p>
-                    {index % 2 === 0
-                      ? "Data , istifadəçi və ümumi web saytın idarə etmə sistemi"
-                      : "Interyer dizaynlarla dolu tərtib olunmuş web səhifə"}{" "}
-                  </p>
-                </div> */}
               </Link>
             </SwiperSlide>
           ))}
@@ -162,20 +141,6 @@ function Homepage() {
                 <div className="carousel-card-image">
                   <img src={p.main_image} alt="" />
                 </div>
-                {/* <div className="carousel-text">
-                  <div>
-                    <h5 className="carousel-title">
-                      {" "}
-                      {index % 2 === 0 ? "Dashboard" : "Interior Design"}{" "}
-                    </h5>
-                    <span className="carousel-date">25-02-2022</span>
-                  </div>
-                  <p>
-                    {index % 2 === 0
-                      ? "Data , istifadəçi və ümumi web saytın idarə etmə sistemi"
-                      : "Interyer dizaynlarla dolu tərtib olunmuş web səhifə"}{" "}
-                  </p>
-                </div> */}
               </Link>
             </SwiperSlide>
           ))}
@@ -185,22 +150,16 @@ function Homepage() {
         <div className="container">
           <h3 className="h-title">Technology services</h3>
           <div id="services">
-            {serviceData.map((s, index) => {
-              if (index >= 0 && index < 2) {
-                return (
-                  <Link
-                    to={`/service/${s.id}/`}
-                    key={index}
-                    className="service"
-                  >
-                    <h5 className="service-name">{s.name}</h5>
-                    <div className="service-image">
-                      <img src={s.image} alt="" />
-                    </div>
-                    <p className="service-text">{s.text}</p>
-                  </Link>
-                );
-              }
+            {serviceData?.map((s, index) => {
+              return (
+                <Link to={`/service/${s.id}/`} key={index} className="service">
+                  <h5 className="service-name">{s.name}</h5>
+                  <div className="service-image">
+                    <img src={s.image} alt="" />
+                  </div>
+                  <p className="service-text">{s.text}</p>
+                </Link>
+              );
             })}
           </div>
         </div>

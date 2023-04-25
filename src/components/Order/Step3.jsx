@@ -6,12 +6,12 @@ function Step3() {
   const check = useRef();
   const { userData, setUserData } = useContext(StepperContext);
   const handleChange = (e) => {
-    console.log("change");
     const { name } = e.target;
     const value = e.target.getAttribute("data-value");
-    console.log(e.target.checked);
     if (e.target.checked) {
-      let filterData = userData.professionalNeed?.split(" ").filter((a) => a !== value);
+      let filterData = userData.professionalNeed
+        ?.split(" ")
+        .filter((a) => a !== value);
       userData.professionalNeed
         ? !filterData.includes(value) &&
           setUserData({
@@ -20,40 +20,40 @@ function Step3() {
           })
         : setUserData({ ...userData, [name]: value });
     } else {
-      let filterData = userData.professionalNeed.split(" ").filter((a) => a !== value);
-      setUserData({...userData,[name]:filterData.toString()})
-      // userData.professionalNeed&&setUserData({...userData,[value]:})
+      let filterData = userData.professionalNeed
+        .split(" ")
+        .filter((a) => a !== value)
+        .toString()
+        .replace(/,/gi, " ");
+      console.log(filterData.toString().replace(/,/gi, " "));
+      setUserData({ ...userData, [name]: filterData });
     }
-    // setUserData({ ...userData, [name]: value });
-    // if (e.target.checked) {
-    //   userData.professionalNeed
-    //     ? !userData.professionalNeed.includes(value) &&
-    //       setUserData({
-    //         ...userData,
-    //         [name]: [...userData.professionalNeed, value],
-    //       })
-    //     : setUserData({ ...userData, [name]: value });
-    // } else {
-    //   console.log(userData.professionalNeed.filter((w) => w !== value));
-    //   userData.professionalNeed &&
-    //     setUserData({
-    //       ...userData,
-    //       [name]: userData.professionalNeed.filter((w) => w !== value),
-    //     });
-    // }
   };
   useEffect(() => {
-    console.log("test");
-    [...check.current?.querySelectorAll("label")].map((inp) => {
-      // console.log(userData.professionalNeed?.includes(inp.innerText));
-      // console.log(inp.innerText, userData.currentStage);
-      if (userData.professionalNeed?.includes(inp.getAttribute("data-value"))) {
-        inp.querySelector("input").setAttribute("checked", "");
+    let inpts = [...check.current?.querySelectorAll("label")];
+    for (let i = 0; i < inpts.length; i++) {
+      if (
+        userData.professionalNeed?.includes(
+          inpts[i].querySelector("input").getAttribute("data-value")
+        )
+      ) {
+        inpts[i].querySelector("input").setAttribute("checked", "");
       } else {
-        inp.querySelector("input").removeAttribute("checked");
+        inpts[i].querySelector("input").removeAttribute("checked");
       }
-    });
-  }, []);
+    }
+    // [...check.current?.querySelectorAll("label")].map((inp) => {
+    //   if (
+    //     userData.professionalNeed?.includes(
+    //       inp.querySelector("input").getAttribute("data-value")
+    //     )
+    //   ) {
+    //     inp.querySelector("input").setAttribute("checked", "");
+    //   } else {
+    //     inp.querySelector("input").removeAttribute("checked");
+    //   }
+    // });
+  }, [userData]);
   return (
     <div>
       <form action="">
@@ -72,9 +72,7 @@ function Step3() {
               type="checkbox"
               name="professionalNeed"
               id="ch-1"
-              data-value={
-                "UI/UXDizayner"
-              }
+              data-value={"UI/UXDizayner"}
             />
             UI/UX Dizayner
           </label>

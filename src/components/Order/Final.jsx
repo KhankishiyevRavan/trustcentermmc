@@ -6,6 +6,7 @@ function Final() {
       <FontAwesomeIcon icon="fa-solid fa-check" />
       <p>Müraciətiniz üçün təşəkkürlər . Sizinlə tezliklə əlaqə saxlanacaq .</p>
       {/* <FontAwesomeIcon icon="fa-solid fa-square-check" /> */}
+      
     </div>
   );
 }

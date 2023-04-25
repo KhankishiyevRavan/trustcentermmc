@@ -13,7 +13,6 @@ function PortfolioDetail() {
       let data = await fetch(
         `https://admin.trustcenterholding.com/portfolio/${id}/`
       ).then((a) => a.json());
-      console.log(data);
       setPortfolioData(data);
     };
     getPortfolioData();

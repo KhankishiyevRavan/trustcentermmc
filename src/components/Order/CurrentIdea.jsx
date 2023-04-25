@@ -11,18 +11,24 @@ function CurrentIdea() {
     // console.log(e);
     const value = e.target.getAttribute("data-value");
     setUserData({ ...userData, [name]: value });
-    // e.target.setAttribute("checked", "true");
   };
   useEffect(() => {
-    // console.log(check.current.querySelectorAll("input"));
-    [...check.current?.querySelectorAll("input")].map((inp) => {
-      if (inp.getAttribute("data-value") === userData.currentStage) {
-        inp.setAttribute("checked", "");
+    let inpts = [...check.current?.querySelectorAll("input")];
+    for (let i = 0; i < inpts.length; i++) {
+      if (inpts[i].getAttribute("data-value") === userData.currentStage) {
+        inpts[i].setAttribute("checked", "");
       } else {
-        inp.removeAttribute("checked");
+        inpts[i].removeAttribute("checked");
       }
-    });
-  }, []);
+    }
+    // [...check.current?.querySelectorAll("input")].map((inp) => {
+    //   if (inp.getAttribute("data-value") === userData.currentStage) {
+    //     inp.setAttribute("checked", "");
+    //   } else {
+    //     inp.removeAttribute("checked");
+    //   }
+    // });
+  }, [userData]);
   return (
     <div>
       <form action="">
@@ -62,7 +68,7 @@ function CurrentIdea() {
               onChange={handleChange}
             />
             Dizayn həlli
-             {/* Designed solution */}
+            {/* Designed solution */}
           </label>
           <label htmlFor="ch-4">
             <input

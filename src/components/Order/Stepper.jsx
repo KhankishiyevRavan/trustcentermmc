@@ -6,10 +6,9 @@ function Stepper({ steps, currentStep }) {
   const updateStep = (stepNumber, steps) => {
     const newSteps = [...steps];
     let count = 0;
-
     while (count < newSteps.length) {
       //  current step
-      if (count == stepNumber) {
+      if (count === stepNumber) {
         newSteps[count] = {
           ...newSteps[count],
           highlighted: true,
@@ -55,22 +54,21 @@ function Stepper({ steps, currentStep }) {
     const current = updateStep(currentStep - 1, stepRef.current);
     setNewStep(current);
   }, [steps, currentStep]);
-  const displaySteps = newStep.map((step, index) => {
-    if (index < newStep.length - 1) {
-      return (
-        <div
-          key={index}
-          className={step.selected ? "order-step selected" : "order-step "}
-        >
-          {!step.completed ? (
-            index + 1
-          ) : (
-            <FontAwesomeIcon icon="fa-solid fa-check" />
-          )}
-        </div>
-      );
-    }
-  });
+  // if (index < newStep.length - 1) 
+  const displaySteps = newStep.map((step, index) => index<newStep.length-1&& 
+    (
+      <div
+        key={index}
+        className={step.selected ? "order-step selected" : "order-step "}
+      >
+        {!step.completed ? (
+          index + 1
+        ) : (
+          <FontAwesomeIcon icon="fa-solid fa-check" />
+        )}
+      </div>
+    )
+  );
   return (
     <div>
       <div className="order-steps">{displaySteps}</div>

@@ -3,9 +3,7 @@ import { StepperContext } from "../../contexts/StepperContext";
 function Step5() {
   const { userData, setUserData } = useContext(StepperContext);
   const handleChange = (e) => {
-    console.log(e);
     const { name, value } = e.target;
-    // const value = e.target.closest("label").innerText;
     setUserData({ ...userData, [name]: value });
   };
   return (

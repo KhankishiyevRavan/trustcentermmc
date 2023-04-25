@@ -10,7 +10,7 @@ function Blogs() {
         (a) => a.json()
       );
       setBlogsData(data);
-      console.log(data);
+      // console.log(data);
     };
     getBlogsData();
   }, []);

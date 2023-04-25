@@ -13,7 +13,7 @@ function BlogDetail() {
       setBlogData(data.blog);
     };
     getBlogsData();
-  }, []);
+  }, [id]);
   return (
     <>
       <section className="blog-detail-section">

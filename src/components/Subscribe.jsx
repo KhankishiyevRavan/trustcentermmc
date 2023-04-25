@@ -1,5 +1,4 @@
 import axios from "axios";
-import React, { useState } from "react";
 
 function Subscribe() {
   let email = new FormData();
@@ -16,13 +15,6 @@ function Subscribe() {
       .catch((error) => {
         console.log(error, "error");
       });
-    // fetch("https://admin.trustcenterholding.com/subscribe/", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(email),
-    // });
   };
   return (
     <section id="subscribe-section" className="container">

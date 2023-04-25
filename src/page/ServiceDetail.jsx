@@ -7,15 +7,14 @@ function ServiceDetail() {
   const [relatedBlogs, setRelatefBlogs] = useState([]);
   useEffect(() => {
     const getServiceData = async () => {
-      // `https://admin.trustcenterholding.com/service/${id}/`
       let data = await fetch(
         `https://admin.trustcenterholding.com/service/${id}/`
       ).then((a) => a.json());
       setServiceData(data.service);
-      console.log(data);
+      setRelatefBlogs(data.related_blogs);
     };
     getServiceData();
-  }, []);
+  }, [id]);
   return (
     <>
       <section className="service-detail-section">
@@ -99,29 +98,5 @@ function ServiceDetail() {
       )}
     </>
   );
-}
-
-{
-  /* <p className="service-detail-text">
-              Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              vulputate libero et velit interdum, ac aliquet odio mattis. Class
-              aptent taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos.
-            </p>
-            <p className="service-detail-text">
-              Curabitur tempus urna at turpis condimentuobortis.Korem ipsum
-              dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero
-              et velit interdum, ac aliquet odio mattis. Class aptent taciti
-              sociosqu ad litora torquent per conubia nostra, per inceptos
-              himenaeos.
-            </p>
-            <p className="service-detail-text">
-              Curabitur tempus urna at turpis condimentum lobortis.Korem ipsum
-              dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero
-              et velit interdum, ac aliquet odio mattis. Class aptent taciti
-              sociosqu ad litora torquent per conubia nostra, per inceptos
-              himenaeos. Curabitur tempus urna at turpis condimentum
-              lobortis.Korem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p> */
 }
 export default ServiceDetail;

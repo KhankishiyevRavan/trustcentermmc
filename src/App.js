@@ -13,7 +13,6 @@ import ServiceDetail from "./page/ServiceDetail";
 import BlogDetail from "./page/BlogDetail";
 import { useEffect } from "react";
 import PortfolioDetail from "./page/PortfolioDetail";
-import Order from "./page/Order";
 import OrderTest from "./page/OrderTest";
 function App() {
   const location = useLocation();
@@ -34,7 +33,6 @@ function App() {
         <Route path="/service/:id" element={<ServiceDetail />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/portfolio/:id" element={<PortfolioDetail />} />
-        <Route path="/test" element={<Order />} />
         <Route path="/order" element={<OrderTest />} />
       </Routes>
       {location.pathname !== "/order" && <Footer />}

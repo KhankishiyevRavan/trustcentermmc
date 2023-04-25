@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { StepperContext } from "../../contexts/StepperContext";
 function ChooseType() {
   const check = useRef();
@@ -9,43 +9,24 @@ function ChooseType() {
     setUserData({ ...userData, [name]: value });
   };
   useEffect(() => {
-    // console.log(check.current.querySelectorAll("input"));
-    [...check.current?.querySelectorAll("label")].map((inp) => {
-      if (inp.innerText === userData.chooseWebSite) {
-        inp.querySelector("input").setAttribute("checked", "");
+    let inpts = [...check.current?.querySelectorAll("label")];
+    for (let i = 0; i < inpts.length; i++) {
+      if (inpts[i].innerText === userData.chooseWebSite) {
+        inpts[i].querySelector("input").setAttribute("checked", "");
       } else {
-        inp.querySelector("input").removeAttribute("checked");
+        inpts[i].querySelector("input").removeAttribute("checked");
       }
-    });
-  }, []);
-  // const handleChange = (e) => {
-  //   const { name } = e.target;
-  //   const value = e.target.closest("label").innerText;
-  //   if (e.target.checked) {
-  //     userData.chooseWebSite
-  //       ? setUserData({
-  //           ...userData,
-  //           [name]: [...userData.chooseWebSite, value],
-  //         })
-  //       : setUserData({ ...userData, [name]: [value] });
-  //   } else {
-  //     userData.chooseWebSite &&
-  //       setUserData({
-  //         ...userData,
-  //         [name]: userData.chooseWebSite.filter((w) => w !== value),
-  //       });
-  //   }
-  // };
-  // useEffect(() => {
-  //   [...check.current?.querySelectorAll("label")].map((inp) => {
-  //     console.log(inp.innerText, userData.currentStage);
-  //     if (userData.chooseWebSite?.includes(inp.innerText)) {
-  //       inp.querySelector("input").setAttribute("checked", "");
-  //     } else {
-  //       inp.querySelector("input").removeAttribute("checked");
-  //     }
-  //   });
-  // }, []);
+    }
+    // console.log(check.current.querySelectorAll("input"));
+    // [...check.current?.querySelectorAll("label")].map((inp) => {
+    //   if (inp.innerText === userData.chooseWebSite) {
+    //     inp.querySelector("input").setAttribute("checked", "");
+    //   } else {
+    //     inp.querySelector("input").removeAttribute("checked");
+    //   }
+    // });
+  }, [userData]);
+
   return (
     <div>
       <form action="">

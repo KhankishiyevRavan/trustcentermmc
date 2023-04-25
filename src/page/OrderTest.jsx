@@ -40,6 +40,8 @@ function OrderTest() {
         return <Step6 />;
       case 7:
         return <Final />;
+      default:
+        return <CurrentIdea />;
     }
   };
   const handleClick = (direction) => {
@@ -50,6 +52,7 @@ function OrderTest() {
       newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
     }, 500);
   };
+
   const sendData = (e) => {
     console.log({ ...userData });
     e.preventDefault();

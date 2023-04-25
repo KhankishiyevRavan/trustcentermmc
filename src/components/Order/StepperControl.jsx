@@ -1,11 +1,7 @@
-import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { StepperContext } from "../../contexts/StepperContext";
-import axios from "axios";
 import { Link } from "react-router-dom";
 function StepperControl({ handleClick, currentStep, steps,sendData }) {
   // const { userData, setUserData } = useContext(StepperContext);
-  
   return (
     <div className="stepper-control">
       {currentStep < steps.length ? (

@@ -10,21 +10,28 @@ function Step4() {
     setUserData({ ...userData, [name]: value });
   };
   useEffect(() => {
-    // console.log(check.current.querySelectorAll("input"));
-    [...check.current?.querySelectorAll("label")].map((inp) => {
-      if (inp.innerText === userData.duration) {
-        inp.querySelector("input").setAttribute("checked", "");
+    let inpts = [...check.current?.querySelectorAll("label")];
+    for (let i = 0; i < inpts.length; i++) {
+      if (inpts[i].innerText === userData.duration) {
+        
+        inpts[i].querySelector("input").setAttribute("checked", "");
       } else {
-        inp.querySelector("input").removeAttribute("checked");
+        inpts[i].querySelector("input").removeAttribute("checked");
       }
-    });
-  }, []);
+    }
+    // [...check.current?.querySelectorAll("label")].map((inp) => {
+    //   if (inp.innerText === userData.duration) {
+    //     inp.querySelector("input").setAttribute("checked", "");
+    //   } else {
+    //     inp.querySelector("input").removeAttribute("checked");
+    //   }
+    // });
+  }, [userData]);
+
   return (
     <div>
       <form action="">
-        <p>
-        Layihənizin gözlənilən müddəti nə qədərdir?
-        </p>
+        <p>Layihənizin gözlənilən müddəti nə qədərdir?</p>
         <div className="form-choose" ref={check}>
           <label htmlFor="ch-1">
             <input
