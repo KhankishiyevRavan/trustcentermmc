@@ -12,7 +12,19 @@ import Final from "../components/Order/Final";
 import axios from "axios";
 function OrderTest() {
   const [currentStep, setCurrentStep] = useState(1);
-  const [userData, setUserData] = useState("");
+  const [sendaAllow, setSendAllow] = useState(true);
+  const [userData, setUserData] = useState({
+    chooseWebSite: "",
+    currentStage: "",
+    description: "",
+    duration: "",
+    email: "",
+    name: "",
+    phone: "",
+    professionalNeed: "",
+    projectDeatils: "",
+    surname: "",
+  });
   const [finalData, setFinalData] = useState([]);
   const steps = [
     "currentIdea",
@@ -54,20 +66,34 @@ function OrderTest() {
   };
 
   const sendData = (e) => {
-    console.log({ ...userData });
+    // console.log({ ...userData });
     e.preventDefault();
+
+    // console.log(Object.entries(userData));
+    let filter = Object.entries(userData).filter((a) => a[1].length ===0);
+
+    if (filter.length) {
+      setSendAllow(false);
+      alert("Zehmet olmasa formu tam doldurun");
+
+    }
     const config = {
       headers: { "Content-type": "application/json" },
     };
+    if (!sendaAllow) {
+      return;
+    }
+    setSendAllow(false);
     axios
       .post("https://admin.trustcenterholding.com/order/", userData, config)
       .then((response) => {
         handleClick("next");
-        console.log(response, "success");
+        // console.log(response, "success");
+        setSendAllow(true);
       })
       .catch((error) => {
         handleClick("next");
-        console.log(error, "error");
+        // console.log(error, "error");
       });
   };
   useEffect(() => {
@@ -78,9 +104,9 @@ function OrderTest() {
       document.querySelector(".order-form form")?.classList.add("deactive");
     }, 500);
   }, [currentStep]);
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+  // useEffect(() => {
+  //   console.log(userData);
+  // }, [userData]);
   return (
     <section id="order-section">
       <div className="order-image">
