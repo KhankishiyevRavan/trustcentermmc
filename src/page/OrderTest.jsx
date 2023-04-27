@@ -70,12 +70,12 @@ function OrderTest() {
     e.preventDefault();
 
     // console.log(Object.entries(userData));
-    let filter = Object.entries(userData).filter((a) => a[1].length ===0);
+    let filter = Object.entries(userData).filter((a) => a[1].length === 0);
 
     if (filter.length) {
       setSendAllow(false);
       alert("Zehmet olmasa formu tam doldurun");
-
+      return;
     }
     const config = {
       headers: { "Content-type": "application/json" },
